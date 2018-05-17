@@ -19,7 +19,7 @@
             </tr>
             <tr>
                 <th>Flagimg</th>
-                <td>{{ team.flagImg }} <a href="{{ asset('uploads/flagImages/' ~ team.flagImg) }}">View country flag's picture</a></td>
+                <td>{{ team.flagImg }} <img src="{{ asset('uploads/flagImages/' ~ team.flagImg) }}" alt="{{ team.country }} flag"></td>
             </tr>
         </tbody>
     </table>

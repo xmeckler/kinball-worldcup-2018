@@ -66,8 +66,8 @@ class Team
      *
      * @ORM\Column(name="flagImg", type="string", length=255)
      *
-     * @Assert\NotBlank(message="Please, upload the flag image as a jpg file.")
-     * @Assert\File(mimeTypes={ "image/jpeg" })
+     * @Assert\NotBlank(message="Please, upload the flag image as a jpg or png file.")
+     * @Assert\File(mimeTypes={ "image/jpeg", "image/png" })
      */
     private $flagImg;
 

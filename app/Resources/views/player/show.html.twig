@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <th>Picture</th>
-                <td>{{ player.picture }} <a href="{{ asset('uploads/playersPictures' ~ player.picture) }}">View player's image</a></td>
+                <td>{{ player.picture }} <img src="{{ asset('uploads/playersPictures' ~ player.picture) }}" alt="{{ player.firstName }} {{ player.lastName }}" /></td>
             </tr>
         </tbody>
     </table>

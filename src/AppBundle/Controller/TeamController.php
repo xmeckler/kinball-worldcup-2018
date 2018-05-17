@@ -5,7 +5,9 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Team;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\TeamType;
 
 /**
@@ -108,6 +110,7 @@ class TeamController extends Controller
      */
     public function editAction(Request $request, Team $team)
     {
+        $team->setFlagImg(new File($this->getParameter('flagImages_directory').'/'.$team->getFlagImg()));
         $deleteForm = $this->createDeleteForm($team);
         $editForm = $this->createForm('AppBundle\Form\TeamType', $team);
         $editForm->handleRequest($request);

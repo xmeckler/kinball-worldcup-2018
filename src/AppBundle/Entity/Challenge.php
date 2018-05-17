@@ -26,16 +26,23 @@ class Challenge
     /**
      * Many Challenges have Many blueTeams.
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="blueChallenges")
-     * @ORM\JoinTable(name="blueChallenges_blueTeams")
+     * @ORM\JoinTable(name="blueChallenges_blueTeam")
      */
-    private $blueTeams;
+    private $blueTeam;
 
     /**
      * Many Challenges have Many blackTeams.
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="blackChallenges")
-     * @ORM\JoinTable(name="blackChallenges_blackTeams")
+     * @ORM\JoinTable(name="blackChallenges_blackTeam")
      */
-    private $blackTeams;
+    private $blackTeam;
+
+    /**
+     * Many Challenges have Many winnerTeams.
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="challengeWinners")
+     * @ORM\JoinTable(name="challengeWinners_winnerTeam")
+     */
+    private $winnerTeam;
 
     public function __toString()
     {
@@ -76,14 +83,6 @@ class Challenge
      * @ORM\Column(name="place", type="string", length=80)
      */
     private $place;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="winner", type="string", length=80, nullable=true)
-     */
-    private $winner;
-
 
     /**
      * Get id
@@ -374,5 +373,29 @@ class Challenge
     public function getBlackTeams()
     {
         return $this->blackTeams;
+    }
+
+    /**
+     * Set winnerTeam
+     *
+     * @param \AppBundle\Entity\Team $winnerTeam
+     *
+     * @return Challenge
+     */
+    public function setWinnerTeam(\AppBundle\Entity\Team $winnerTeam = null)
+    {
+        $this->winnerTeam = $winnerTeam;
+
+        return $this;
+    }
+
+    /**
+     * Get winnerTeam
+     *
+     * @return \AppBundle\Entity\Team
+     */
+    public function getWinnerTeam()
+    {
+        return $this->winnerTeam;
     }
 }

@@ -24,21 +24,27 @@ class Team
 
     /**
      * Many Teams have Many Challenges.
-     * @ORM\OneToMany(targetEntity="Challenge", mappedBy="greyTeams")
+     * @ORM\OneToMany(targetEntity="Challenge", mappedBy="greyTeam")
      */
     private $greyChallenges;
 
     /**
      * Many Teams have Many Challenges.
-     * @ORM\OneToMany(targetEntity="Challenge", mappedBy="blueTeams")
+     * @ORM\OneToMany(targetEntity="Challenge", mappedBy="blueTeam")
      */
     private $blueChallenges;
 
     /**
      * Many Teams have Many Challenges.
-     * @ORM\OneToMany(targetEntity="Challenge", mappedBy="blackTeams")
+     * @ORM\OneToMany(targetEntity="Challenge", mappedBy="blackTeam")
      */
     private $blackChallenges;
+
+    /**
+     * Many Teams have Many Challenges.
+     * @ORM\OneToMany(targetEntity="Challenge", mappedBy="winnerTeam")
+     */
+    private $challengeWinners;
 
     public function __toString()
     {
@@ -341,5 +347,39 @@ class Team
     public function getBlackChallenges()
     {
         return $this->blackChallenges;
+    }
+
+    /**
+     * Add challengeWinner
+     *
+     * @param \AppBundle\Entity\Challenge $challengeWinner
+     *
+     * @return Team
+     */
+    public function addChallengeWinner(\AppBundle\Entity\Challenge $challengeWinner)
+    {
+        $this->challengeWinners[] = $challengeWinner;
+
+        return $this;
+    }
+
+    /**
+     * Remove challengeWinner
+     *
+     * @param \AppBundle\Entity\Challenge $challengeWinner
+     */
+    public function removeChallengeWinner(\AppBundle\Entity\Challenge $challengeWinner)
+    {
+        $this->challengeWinners->removeElement($challengeWinner);
+    }
+
+    /**
+     * Get challengeWinners
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChallengeWinners()
+    {
+        return $this->challengeWinners;
     }
 }

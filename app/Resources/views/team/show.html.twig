@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Team</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ team.id }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ team.country }}</td>
+            </tr>
+            <tr>
+                <th>Teamname</th>
+                <td>{{ team.teamName }}</td>
+            </tr>
+            <tr>
+                <th>Flagimg</th>
+                <td>{{ team.flagImg }} <a href="{{ asset('uploads/flagImages/' ~ team.flagImg) }}">View country flag's picture</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('team_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('team_edit', { 'id': team.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

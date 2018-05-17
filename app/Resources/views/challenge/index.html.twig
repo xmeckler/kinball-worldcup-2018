@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Challenges list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Greyteam</th>
+                <th>Blueteam</th>
+                <th>Blackteam</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Place</th>
+                <th>Winner</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for challenge in challenges %}
+            <tr>
+                <td><a href="{{ path('challenge_show', { 'id': challenge.id }) }}">{{ challenge.id }}</a></td>
+                <td>{{ challenge.greyTeam }}</td>
+                <td>{{ challenge.blueTeam }}</td>
+                <td>{{ challenge.blackTeam }}</td>
+                <td>{% if challenge.date %}{{ challenge.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if challenge.time %}{{ challenge.time|date('H:i:s') }}{% endif %}</td>
+                <td>{{ challenge.place }}</td>
+                <td>{{ challenge.winner }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('challenge_show', { 'id': challenge.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('challenge_edit', { 'id': challenge.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('challenge_new') }}">Create a new challenge</a>
+        </li>
+    </ul>
+{% endblock %}

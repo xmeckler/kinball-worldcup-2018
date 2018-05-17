@@ -17,11 +17,25 @@ class Challenge
     */
 
     /**
-     * Many Challenges have Many Teams.
-     * @ORM\ManyToMany(targetEntity="Team", inversedBy="challenges")
-     * @ORM\JoinTable(name="challenges_teams")
+     * Many Challenges have Many greyTeams.
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="greyChallenges")
+     * @ORM\JoinTable(name="greyChallenges_greyTeams")
      */
-    private $teams;
+    private $greyTeams;
+
+    /**
+     * Many Challenges have Many blueTeams.
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="blueChallenges")
+     * @ORM\JoinTable(name="blueChallenges_blueTeams")
+     */
+    private $blueTeams;
+
+    /**
+     * Many Challenges have Many blackTeams.
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="blackChallenges")
+     * @ORM\JoinTable(name="blackChallenges_blackTeams")
+     */
+    private $blackTeams;
 
     public function __toString()
     {
@@ -41,27 +55,6 @@ class Challenge
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="greyTeam", type="string", length=80)
-     */
-    private $greyTeam;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="blueTeam", type="string", length=80)
-     */
-    private $blueTeam;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="blackTeam", type="string", length=80)
-     */
-    private $blackTeam;
 
     /**
      * @var \DateTime
@@ -309,5 +302,77 @@ class Challenge
     public function getTeams()
     {
         return $this->teams;
+    }
+
+    /**
+     * Set greyTeams
+     *
+     * @param \AppBundle\Entity\Team $greyTeams
+     *
+     * @return Challenge
+     */
+    public function setGreyTeams(\AppBundle\Entity\Team $greyTeams = null)
+    {
+        $this->greyTeams = $greyTeams;
+
+        return $this;
+    }
+
+    /**
+     * Get greyTeams
+     *
+     * @return \AppBundle\Entity\Team
+     */
+    public function getGreyTeams()
+    {
+        return $this->greyTeams;
+    }
+
+    /**
+     * Set blueTeams
+     *
+     * @param \AppBundle\Entity\Team $blueTeams
+     *
+     * @return Challenge
+     */
+    public function setBlueTeams(\AppBundle\Entity\Team $blueTeams = null)
+    {
+        $this->blueTeams = $blueTeams;
+
+        return $this;
+    }
+
+    /**
+     * Get blueTeams
+     *
+     * @return \AppBundle\Entity\Team
+     */
+    public function getBlueTeams()
+    {
+        return $this->blueTeams;
+    }
+
+    /**
+     * Set blackTeams
+     *
+     * @param \AppBundle\Entity\Team $blackTeams
+     *
+     * @return Challenge
+     */
+    public function setBlackTeams(\AppBundle\Entity\Team $blackTeams = null)
+    {
+        $this->blackTeams = $blackTeams;
+
+        return $this;
+    }
+
+    /**
+     * Get blackTeams
+     *
+     * @return \AppBundle\Entity\Team
+     */
+    public function getBlackTeams()
+    {
+        return $this->blackTeams;
     }
 }

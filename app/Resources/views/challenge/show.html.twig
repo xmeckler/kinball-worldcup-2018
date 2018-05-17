@@ -10,18 +10,6 @@
                 <td>{{ challenge.id }}</td>
             </tr>
             <tr>
-                <th>Greyteam</th>
-                <td>{{ challenge.greyTeam }}</td>
-            </tr>
-            <tr>
-                <th>Blueteam</th>
-                <td>{{ challenge.blueTeam }}</td>
-            </tr>
-            <tr>
-                <th>Blackteam</th>
-                <td>{{ challenge.blackTeam }}</td>
-            </tr>
-            <tr>
                 <th>Date</th>
                 <td>{% if challenge.date %}{{ challenge.date|date('Y-m-d') }}{% endif %}</td>
             </tr>

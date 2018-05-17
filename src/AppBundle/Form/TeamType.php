@@ -13,7 +13,7 @@ class TeamType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('country')->add('teamName')->add('flagImg');
+        $builder->add('country')->add('teamName')->add('flagImg')->add('challenges');
     }/**
      * {@inheritdoc}
      */

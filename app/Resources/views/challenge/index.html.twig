@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Challenges list</h1>
+    <h1 style="text-align: center;">Challenges list</h1>
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -43,9 +43,9 @@
         </tbody>
     </table>
 
-    <ul>
+    <ul style="list-style-type: none; text-align: center;">
         <li>
-            <a href="{{ path('challenge_new') }}">Create a new challenge</a>
+            <a class="btn btn-primary" href="{{ path('challenge_new') }}">Create a new challenge</a>
         </li>
     </ul>
 {% endblock %}

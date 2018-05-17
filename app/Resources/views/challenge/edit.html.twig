@@ -1,20 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Challenge edit</h1>
+
+    <h1 style="text-align: center;">Challenge edit</h1>
+
+<div>
 
     {{ form_start(edit_form) }}
+
+    <div style="text-align: center;">
+
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+
+    </div>
+
+</div>
+
     {{ form_end(edit_form) }}
 
-    <ul>
+    <ul style="text-align: center; list-style-type: none;">
         <li>
             <a href="{{ path('challenge_index') }}">Back to the list</a>
+
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Delete" class="btn btn-danger">
             {{ form_end(delete_form) }}
         </li>
     </ul>

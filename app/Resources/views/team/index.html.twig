@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Teams list</h1>
+    <h1 style="text-align: center;">Teams list</h1>
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -35,9 +35,9 @@
         </tbody>
     </table>
 
-    <ul>
+    <ul style="list-style-type: none; text-align: center;">
         <li>
-            <a href="{{ path('team_new') }}">Create a new team</a>
+            <a class="btn btn-primary" href="{{ path('team_new') }}">Create a new team</a>
         </li>
     </ul>
 {% endblock %}

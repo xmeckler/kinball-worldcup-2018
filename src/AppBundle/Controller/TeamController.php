@@ -13,7 +13,7 @@ use AppBundle\Form\TeamType;
 /**
  * Team controller.
  *
- * @Route("team")
+ * @Route("admin/team")
  */
 class TeamController extends Controller
 {

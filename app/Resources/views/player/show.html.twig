@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <th>Picture</th>
-                <td>{{ player.picture }}</td>
+                <td>{{ player.picture }} <a href="{{ asset('uploads/playersPictures' ~ player.picture) }}">View player's image</a></td>
             </tr>
         </tbody>
     </table>

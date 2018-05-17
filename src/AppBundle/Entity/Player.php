@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Player
@@ -73,6 +74,9 @@ class Player
      * @var string
      *
      * @ORM\Column(name="picture", type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Please, upload the player's picture as a jpg file.")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
      */
     private $picture;
 

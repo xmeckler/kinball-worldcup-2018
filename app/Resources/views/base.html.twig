@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,9 +6,43 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" media="screen" href="{{  asset("assest/css/style.css") }}">
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+        {% block body %}
+        }
+        {% endblock %}
+        <div class="container-fluid footer" >
+            <div class=" row " >
+                <div class="" >
+                    <!--Sociale Media-->
+                    <div class="icons"  >
+                        <ul class=" list-inline ">
+                            <li class="list-inline-item">
+                                <a href="https://fr-fr.facebook.com/">
+                                    <i><img src="assest/images/facebook.png"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item ">
+                                <a href="https://twitter.com/">
+                                    <i> <img src="assest/images/twitter.png"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/">
+                                    <i><img src="assest/images/instagram.png"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--End of the sociale midia-->
+                    </div>
+                </div>
+            </div>
+        </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

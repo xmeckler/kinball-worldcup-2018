@@ -6,9 +6,9 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Time</th>
+                <th>Grey team</th>
+                <th>Blue team</th>
+                <th>Black team</th>
                 <th>Place</th>
                 <th>Phase</th>
                 <th>Actions</th>
@@ -17,9 +17,9 @@
         <tbody>
         {% for challenge in challenges %}
             <tr>
-                <td><a href="{{ path('challenge_show', { 'id': challenge.id }) }}">{{ challenge.id }}</a></td>
-                <td>{% if challenge.date %}{{ challenge.date|date('Y-m-d') }}{% endif %}</td>
-                <td>{% if challenge.time %}{{ challenge.time|date('H:i:s') }}{% endif %}</td>
+                <td>{{ challenge.greyTeam.country }}</td>
+                <td>{{ challenge.blueTeam.country }}</td>
+                <td>{{ challenge.blackTeam.country }}</td>
                 <td>{{ challenge.place }}</td>
                 <td>{{ challenge.phase }}</td>
                 <td>

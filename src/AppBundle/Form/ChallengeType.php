@@ -13,7 +13,7 @@ class ChallengeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('greyTeam')->add('blueTeam')->add('blackTeam')->add('date')->add('time')->add('place')->add('winner')->add('teams');
+        $builder->add('date')->add('time')->add('place')->add('phase')->add('greyTeam')->add('blueTeam')->add('blackTeam')->add('winnerTeam');
     }/**
      * {@inheritdoc}
      */

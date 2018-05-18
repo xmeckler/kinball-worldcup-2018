@@ -19,7 +19,7 @@
                 <td><a href="{{ path('team_show', { 'id': team.id }) }}">{{ team.id }}</a></td>
                 <td>{{ team.country }}</td>
                 <td>{{ team.teamName }}</td>
-                <td>{{ team.flagImg }}</td>
+                <td><img src="/uploads/flagImages/{{ team.flagImg }}" class="flag img-responsive" alt="flag" ><img src="" alt=""></td>
                 <td>
                     <ul>
                         <li>
@@ -35,8 +35,11 @@
         </tbody>
     </table>
 
-    <div style="text-align: center; padding-bottom: 15px;">
-        <a class="btn btn-primary" href="{{ path('team_new') }}">Create a new team</a>
-    </div>
+    <ul style="list-style-type: none; text-align: center;">
+        <li>
+            <a class="btn btn-primary" href="{{ path('team_new') }}">Create a new team</a>
+        </li>
+    </ul>
 
+<link rel="stylesheet" href="{{ asset('css/base.css') }}">
 {% endblock %}

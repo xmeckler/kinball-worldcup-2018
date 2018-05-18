@@ -19,9 +19,9 @@ class Challenge
     /**
      * Many Challenges have Many greyTeams.
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="greyChallenges")
-     * @ORM\JoinTable(name="greyChallenges_greyTeams")
+     * @ORM\JoinTable(name="greyChallenges_greyTeam")
      */
-    private $greyTeams;
+    private $greyTeam;
 
     /**
      * Many Challenges have Many blueTeams.
@@ -47,7 +47,7 @@ class Challenge
     public function __toString()
     {
         // Return the Challenge object with *[WINNER]* format, when __toString is called
-        return $this->winner;
+        return $this->greyTeam . "vs" . $this->blueTeam . "vs" . $this->blackTeam;
     }
 
     /*
@@ -83,6 +83,13 @@ class Challenge
      * @ORM\Column(name="place", type="string", length=80)
      */
     private $place;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phase", type="string", length=80)
+     */
+    private $phase;
 
     /**
      * Get id
@@ -397,5 +404,29 @@ class Challenge
     public function getWinnerTeam()
     {
         return $this->winnerTeam;
+    }
+
+    /**
+     * Set phase
+     *
+     * @param string $phase
+     *
+     * @return Challenge
+     */
+    public function setPhase($phase)
+    {
+        $this->phase = $phase;
+
+        return $this;
+    }
+
+    /**
+     * Get phase
+     *
+     * @return string
+     */
+    public function getPhase()
+    {
+        return $this->phase;
     }
 }

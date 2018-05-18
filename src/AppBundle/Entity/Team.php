@@ -49,7 +49,7 @@ class Team
     public function __toString()
     {
         // Return the Team object with *[TEAMNAME]  [FLAGIMG]* format, when __toString is called
-        return $this->teamName . "  " . $this->flagImg;
+        return $this->country . "  " . $this->teamName;
     }
 
     /*

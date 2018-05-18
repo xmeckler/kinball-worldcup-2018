@@ -49,7 +49,7 @@ class Team
     public function __toString()
     {
         // Return the Team object with *[TEAMNAME]  [FLAGIMG]* format, when __toString is called
-        return $this->teamName . "  " . $this->flagImg;
+        return $this->country . "  " . $this->teamName;
     }
 
     /*
@@ -347,5 +347,39 @@ class Team
     public function getBlackChallenges()
     {
         return $this->blackChallenges;
+    }
+
+    /**
+     * Add challengeWinner
+     *
+     * @param \AppBundle\Entity\Challenge $challengeWinner
+     *
+     * @return Team
+     */
+    public function addChallengeWinner(\AppBundle\Entity\Challenge $challengeWinner)
+    {
+        $this->challengeWinners[] = $challengeWinner;
+
+        return $this;
+    }
+
+    /**
+     * Remove challengeWinner
+     *
+     * @param \AppBundle\Entity\Challenge $challengeWinner
+     */
+    public function removeChallengeWinner(\AppBundle\Entity\Challenge $challengeWinner)
+    {
+        $this->challengeWinners->removeElement($challengeWinner);
+    }
+
+    /**
+     * Get challengeWinners
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChallengeWinners()
+    {
+        return $this->challengeWinners;
     }
 }

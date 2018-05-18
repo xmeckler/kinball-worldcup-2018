@@ -10,6 +10,7 @@
                 <th>Date</th>
                 <th>Time</th>
                 <th>Place</th>
+                <th>Phase</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{% if challenge.date %}{{ challenge.date|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if challenge.time %}{{ challenge.time|date('H:i:s') }}{% endif %}</td>
                 <td>{{ challenge.place }}</td>
+                <td>{{ challenge.phase }}</td>
                 <td>
                     <ul>
                         <li>

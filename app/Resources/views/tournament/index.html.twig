@@ -15,8 +15,6 @@
         <title>Kinball Tournament</title>
     </head>
     <body>
-
-    
     <section id="bracket">
         <div class="container">
             <div class="split split-one">
@@ -26,6 +24,7 @@
                                 {% if challenge.phase == 'Start' %}
                                 <ul class="matchup">
                                     <li class="team team-top">{{ challenge.greyTeam.teamName }}{% if challenge.greyTeam.teamName == challenge.winnerTeam.teamName %}<span class="score">Win</span>{% endif %}</li>
+
                                     <li class="team team-bottom">{{ challenge.blueTeam.teamName }}{% if challenge.blueTeam.teamName == challenge.winnerTeam.teamName %}<span class="score">Win</span>{% endif %}</li>
                                     <li class="team team-bottom">{{ challenge.blackTeam.teamName }}{% if challenge.blackTeam.teamName == challenge.winnerTeam.teamName %}<span class="score">Win</span>{% endif %}</li>
                                 </ul>
@@ -45,7 +44,6 @@
                         {% endif %}
                     {% endfor %}
                 </div>  <!-- END ROUND TWO -->
-
                 <div class="round round-three">
                     <div class="round-details">Final<br/><span class="date">Orleans</span></div>
                     {% for challenge in challenges %}
@@ -59,6 +57,7 @@
                     {% endfor %}
                 </div>  <!-- END ROUND THREE -->
             </div>
+
             <div class="champion">
                 <div class="final">
                     <i class="fa fa-trophy"></i>

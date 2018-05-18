@@ -176,6 +176,7 @@ body {
 .round-three .matchup {
     margin-top: 350px;
     height: 80px;
+    height: 60px;
     padding: 130px 0;
 }
 
@@ -291,7 +292,7 @@ body {
     }
 
     .champion {
-        width: 17%;
+        width: 14%;
     }
 
     .split {

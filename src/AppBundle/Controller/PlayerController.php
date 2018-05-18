@@ -5,7 +5,9 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Player;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\PlayerType;
 
 /**
@@ -108,6 +110,7 @@ class PlayerController extends Controller
      */
     public function editAction(Request $request, Player $player)
     {
+        $player->setPicture(new File($this->getParameter('playersPictures_directory').'/'.$player->getPicture()));
         $deleteForm = $this->createDeleteForm($player);
         $editForm = $this->createForm('AppBundle\Form\PlayerType', $player);
         $editForm->handleRequest($request);

@@ -24,14 +24,32 @@ class Team
 
     /**
      * Many Teams have Many Challenges.
-     * @ORM\ManyToMany(targetEntity="Challenge", mappedBy="teams")
+     * @ORM\OneToMany(targetEntity="Challenge", mappedBy="greyTeam")
      */
-    private $challenges;
+    private $greyChallenges;
+
+    /**
+     * Many Teams have Many Challenges.
+     * @ORM\OneToMany(targetEntity="Challenge", mappedBy="blueTeam")
+     */
+    private $blueChallenges;
+
+    /**
+     * Many Teams have Many Challenges.
+     * @ORM\OneToMany(targetEntity="Challenge", mappedBy="blackTeam")
+     */
+    private $blackChallenges;
+
+    /**
+     * Many Teams have Many Challenges.
+     * @ORM\OneToMany(targetEntity="Challenge", mappedBy="winnerTeam")
+     */
+    private $challengeWinners;
 
     public function __toString()
     {
         // Return the Team object with *[TEAMNAME]  [FLAGIMG]* format, when __toString is called
-        return $this->teamName . "  " . $this->flagImg;
+        return $this->country . "  " . $this->teamName;
     }
 
     /*
@@ -66,8 +84,8 @@ class Team
      *
      * @ORM\Column(name="flagImg", type="string", length=255)
      *
-     * @Assert\NotBlank(message="Please, upload the flag image as a jpg file.")
-     * @Assert\File(mimeTypes={ "image/jpeg" })
+     * @Assert\NotBlank(message="Please, upload the flag image as a jpg or png file.")
+     * @Assert\File(mimeTypes={ "image/jpeg", "image/png" })
      */
     private $flagImg;
 
@@ -227,5 +245,141 @@ class Team
     public function getChallenges()
     {
         return $this->challenges;
+    }
+
+    /**
+     * Add greyChallenge
+     *
+     * @param \AppBundle\Entity\Challenge $greyChallenge
+     *
+     * @return Team
+     */
+    public function addGreyChallenge(\AppBundle\Entity\Challenge $greyChallenge)
+    {
+        $this->greyChallenges[] = $greyChallenge;
+
+        return $this;
+    }
+
+    /**
+     * Remove greyChallenge
+     *
+     * @param \AppBundle\Entity\Challenge $greyChallenge
+     */
+    public function removeGreyChallenge(\AppBundle\Entity\Challenge $greyChallenge)
+    {
+        $this->greyChallenges->removeElement($greyChallenge);
+    }
+
+    /**
+     * Get greyChallenges
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGreyChallenges()
+    {
+        return $this->greyChallenges;
+    }
+
+    /**
+     * Add blueChallenge
+     *
+     * @param \AppBundle\Entity\Challenge $blueChallenge
+     *
+     * @return Team
+     */
+    public function addBlueChallenge(\AppBundle\Entity\Challenge $blueChallenge)
+    {
+        $this->blueChallenges[] = $blueChallenge;
+
+        return $this;
+    }
+
+    /**
+     * Remove blueChallenge
+     *
+     * @param \AppBundle\Entity\Challenge $blueChallenge
+     */
+    public function removeBlueChallenge(\AppBundle\Entity\Challenge $blueChallenge)
+    {
+        $this->blueChallenges->removeElement($blueChallenge);
+    }
+
+    /**
+     * Get blueChallenges
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlueChallenges()
+    {
+        return $this->blueChallenges;
+    }
+
+    /**
+     * Add blackChallenge
+     *
+     * @param \AppBundle\Entity\Challenge $blackChallenge
+     *
+     * @return Team
+     */
+    public function addBlackChallenge(\AppBundle\Entity\Challenge $blackChallenge)
+    {
+        $this->blackChallenges[] = $blackChallenge;
+
+        return $this;
+    }
+
+    /**
+     * Remove blackChallenge
+     *
+     * @param \AppBundle\Entity\Challenge $blackChallenge
+     */
+    public function removeBlackChallenge(\AppBundle\Entity\Challenge $blackChallenge)
+    {
+        $this->blackChallenges->removeElement($blackChallenge);
+    }
+
+    /**
+     * Get blackChallenges
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBlackChallenges()
+    {
+        return $this->blackChallenges;
+    }
+
+    /**
+     * Add challengeWinner
+     *
+     * @param \AppBundle\Entity\Challenge $challengeWinner
+     *
+     * @return Team
+     */
+    public function addChallengeWinner(\AppBundle\Entity\Challenge $challengeWinner)
+    {
+        $this->challengeWinners[] = $challengeWinner;
+
+        return $this;
+    }
+
+    /**
+     * Remove challengeWinner
+     *
+     * @param \AppBundle\Entity\Challenge $challengeWinner
+     */
+    public function removeChallengeWinner(\AppBundle\Entity\Challenge $challengeWinner)
+    {
+        $this->challengeWinners->removeElement($challengeWinner);
+    }
+
+    /**
+     * Get challengeWinners
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChallengeWinners()
+    {
+        return $this->challengeWinners;
     }
 }

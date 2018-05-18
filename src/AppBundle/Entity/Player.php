@@ -75,8 +75,8 @@ class Player
      *
      * @ORM\Column(name="picture", type="string", length=255)
      *
-     * @Assert\NotBlank(message="Please, upload the player's picture as a jpg file.")
-     * @Assert\File(mimeTypes={ "image/jpeg" })
+     * @Assert\NotBlank(message="Please, upload the player's picture as a jpg or png file.")
+     * @Assert\File(mimeTypes={ "image/jpeg", "image/png" })
      */
     private $picture;
 

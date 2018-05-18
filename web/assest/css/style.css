@@ -1,8 +1,8 @@
 /*footer*/
-.footer {
+footer {
     background-color:#343232;
     height: 60px;
-    margin-top:10px;
+    margin-top: 7em;
 }
 .icons {
     padding-right: 0;
@@ -24,6 +24,33 @@
     to {
         transform: rotate(360deg);
     }
+}
+.match img {
+    height: 120px;
+}
+.match a {
+    display: block;
+    text-align: center;
+}
+.vs img{
+    width: 14em;
+}
+.flage {
+    margin: 10px;
+}
+.paye {
+    text-align: center;
+    display: inline;
+}
+.contre {
+    text-align: center;
+}
+.first {
+    margin-top: 2px;
+}
+.maison h1{
+    font-size: 40px;
+
 }
 @media screen and (max-width: 415px) {
 .list-inline img {

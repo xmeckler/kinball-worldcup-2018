@@ -17,16 +17,37 @@ class Challenge
     */
 
     /**
-     * Many Challenges have Many Teams.
-     * @ORM\ManyToMany(targetEntity="Team", inversedBy="challenges")
-     * @ORM\JoinTable(name="challenges_teams")
+     * Many Challenges have Many greyTeams.
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="greyChallenges")
+     * @ORM\JoinTable(name="greyChallenges_greyTeam")
      */
-    private $teams;
+    private $greyTeam;
+
+    /**
+     * Many Challenges have Many blueTeams.
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="blueChallenges")
+     * @ORM\JoinTable(name="blueChallenges_blueTeam")
+     */
+    private $blueTeam;
+
+    /**
+     * Many Challenges have Many blackTeams.
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="blackChallenges")
+     * @ORM\JoinTable(name="blackChallenges_blackTeam")
+     */
+    private $blackTeam;
+
+    /**
+     * Many Challenges have Many winnerTeams.
+     * @ORM\ManyToOne(targetEntity="Team", inversedBy="challengeWinners")
+     * @ORM\JoinTable(name="challengeWinners_winnerTeam")
+     */
+    private $winnerTeam;
 
     public function __toString()
     {
         // Return the Challenge object with *[WINNER]* format, when __toString is called
-        return $this->winner;
+        return $this->greyTeam . "vs" . $this->blueTeam . "vs" . $this->blackTeam;
     }
 
     /*
@@ -41,27 +62,6 @@ class Challenge
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="greyTeam", type="string", length=80)
-     */
-    private $greyTeam;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="blueTeam", type="string", length=80)
-     */
-    private $blueTeam;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="blackTeam", type="string", length=80)
-     */
-    private $blackTeam;
 
     /**
      * @var \DateTime
@@ -87,10 +87,9 @@ class Challenge
     /**
      * @var string
      *
-     * @ORM\Column(name="winner", type="string", length=80, nullable=true)
+     * @ORM\Column(name="phase", type="string", length=80)
      */
-    private $winner;
-
+    private $phase;
 
     /**
      * Get id
@@ -309,5 +308,125 @@ class Challenge
     public function getTeams()
     {
         return $this->teams;
+    }
+
+    /**
+     * Set greyTeams
+     *
+     * @param \AppBundle\Entity\Team $greyTeams
+     *
+     * @return Challenge
+     */
+    public function setGreyTeams(\AppBundle\Entity\Team $greyTeams = null)
+    {
+        $this->greyTeams = $greyTeams;
+
+        return $this;
+    }
+
+    /**
+     * Get greyTeams
+     *
+     * @return \AppBundle\Entity\Team
+     */
+    public function getGreyTeams()
+    {
+        return $this->greyTeams;
+    }
+
+    /**
+     * Set blueTeams
+     *
+     * @param \AppBundle\Entity\Team $blueTeams
+     *
+     * @return Challenge
+     */
+    public function setBlueTeams(\AppBundle\Entity\Team $blueTeams = null)
+    {
+        $this->blueTeams = $blueTeams;
+
+        return $this;
+    }
+
+    /**
+     * Get blueTeams
+     *
+     * @return \AppBundle\Entity\Team
+     */
+    public function getBlueTeams()
+    {
+        return $this->blueTeams;
+    }
+
+    /**
+     * Set blackTeams
+     *
+     * @param \AppBundle\Entity\Team $blackTeams
+     *
+     * @return Challenge
+     */
+    public function setBlackTeams(\AppBundle\Entity\Team $blackTeams = null)
+    {
+        $this->blackTeams = $blackTeams;
+
+        return $this;
+    }
+
+    /**
+     * Get blackTeams
+     *
+     * @return \AppBundle\Entity\Team
+     */
+    public function getBlackTeams()
+    {
+        return $this->blackTeams;
+    }
+
+    /**
+     * Set winnerTeam
+     *
+     * @param \AppBundle\Entity\Team $winnerTeam
+     *
+     * @return Challenge
+     */
+    public function setWinnerTeam(\AppBundle\Entity\Team $winnerTeam = null)
+    {
+        $this->winnerTeam = $winnerTeam;
+
+        return $this;
+    }
+
+    /**
+     * Get winnerTeam
+     *
+     * @return \AppBundle\Entity\Team
+     */
+    public function getWinnerTeam()
+    {
+        return $this->winnerTeam;
+    }
+
+    /**
+     * Set phase
+     *
+     * @param string $phase
+     *
+     * @return Challenge
+     */
+    public function setPhase($phase)
+    {
+        $this->phase = $phase;
+
+        return $this;
+    }
+
+    /**
+     * Get phase
+     *
+     * @return string
+     */
+    public function getPhase()
+    {
+        return $this->phase;
     }
 }

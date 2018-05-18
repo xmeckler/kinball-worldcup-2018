@@ -1,19 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Challenges list</h1>
+    <h1 style="text-align: center;">Challenges list</h1>
 
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Greyteam</th>
-                <th>Blueteam</th>
-                <th>Blackteam</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Place</th>
-                <th>Winner</th>
+                <th>Phase</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,13 +18,10 @@
         {% for challenge in challenges %}
             <tr>
                 <td><a href="{{ path('challenge_show', { 'id': challenge.id }) }}">{{ challenge.id }}</a></td>
-                <td>{{ challenge.greyTeam }}</td>
-                <td>{{ challenge.blueTeam }}</td>
-                <td>{{ challenge.blackTeam }}</td>
                 <td>{% if challenge.date %}{{ challenge.date|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if challenge.time %}{{ challenge.time|date('H:i:s') }}{% endif %}</td>
                 <td>{{ challenge.place }}</td>
-                <td>{{ challenge.winner }}</td>
+                <td>{{ challenge.phase }}</td>
                 <td>
                     <ul>
                         <li>
@@ -43,9 +37,9 @@
         </tbody>
     </table>
 
-    <ul>
+    <ul style="list-style-type: none; text-align: center;">
         <li>
-            <a href="{{ path('challenge_new') }}">Create a new challenge</a>
+            <a class="btn btn-primary" href="{{ path('challenge_new') }}">Create a new challenge</a>
         </li>
     </ul>
 {% endblock %}

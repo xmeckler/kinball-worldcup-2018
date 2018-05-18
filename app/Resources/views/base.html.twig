@@ -41,17 +41,17 @@
                 <ul class=" list-inline ">
                     <li class="list-inline-item">
                         <a href="https://fr-fr.facebook.com/">
-                            <i><img src="assest/images/facebook.png"></i>
+                            <i><img src="{{ asset('facebook.png') }}"></i>
                         </a>
                     </li>
                     <li class="list-inline-item ">
                         <a href="https://twitter.com/">
-                            <i> <img src="assest/images/twitter.png"></i>
+                            <i> <img src="{{ asset('twitter.png') }}"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a href="https://www.instagram.com/">
-                            <i><img src="assest/images/instagram.png"></i>
+                            <i><img src="{{ asset('instagram.png') }}"></i>
                         </a>
                     </li>
                 </ul>
@@ -65,7 +65,7 @@
             crossorigin="anonymous"></script>
 {% endblock %}
 <style>
-    body {  background-image : url("fond-kinball.jpg"); background-size: cover;}
+    body {  background-image : url("fond-kinball.jpg"); background-size: cover; background-repeat:  no-repeat;}
 </style>
 </body>
 </html>

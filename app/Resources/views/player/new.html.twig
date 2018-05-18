@@ -8,8 +8,15 @@
 
         {{ form_start(form) }}
 
-        {{ form_widget(form) }}
+        {{ form_row(form.firstName) }}
 
+        {{ form_row(form.lastName) }}
+        {{ form_row(form.age) }}
+        {{ form_row(form.nickName) }}
+    <div style="width: 150%;">
+        {{ form_row(form.picture) }}
+        {#{{ form_row(form.firstName) }}#}
+    </div>
 
         <input  class="btn btn-primary" type="submit" value="Create" />
 

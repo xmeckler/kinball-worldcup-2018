@@ -5,14 +5,14 @@
 
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Place</th>
-                <th>Phase</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Place</th>
+            <th>Phase</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for challenge in challenges %}
@@ -37,9 +37,7 @@
         </tbody>
     </table>
 
-    <ul style="list-style-type: none; text-align: center;">
-        <li>
-            <a class="btn btn-primary" href="{{ path('challenge_new') }}">Create a new challenge</a>
-        </li>
-    </ul>
+    <div style="text-align: center; padding-bottom: 15px;">
+        <a class="btn btn-primary" href="{{ path('challenge_new') }}">Create a new challenge</a>
+    </div>
 {% endblock %}

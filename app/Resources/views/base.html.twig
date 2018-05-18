@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8"/>
     <title>{% block title %}Kinball{% endblock %}</title>
@@ -29,18 +31,41 @@
 
     </div>
 </nav>
-{% block body %}
 
-{% endblock %}
-<style>
-    body {  background-image : url("fond-kinball.jpg"); background-size: cover;}
-</style>
+{% block body %}{% endblock %}
+
+<div class="container-fluid footer" >
+    <div class=" row " >
+        <div style="text-align: center;" >
+            <div class="icons"  >
+                <ul class=" list-inline ">
+                    <li class="list-inline-item">
+                        <a href="https://fr-fr.facebook.com/">
+                            <i><img src="assest/images/facebook.png"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item ">
+                        <a href="https://twitter.com/">
+                            <i> <img src="assest/images/twitter.png"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/">
+                            <i><img src="assest/images/instagram.png"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 {% block javascripts %}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
 {% endblock %}
+<style>
+    body {  background-image : url("fond-kinball.jpg"); background-size: cover;}
+</style>
 </body>
-
-
 </html>

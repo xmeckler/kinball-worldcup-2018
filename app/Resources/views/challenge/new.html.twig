@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 style="text-align: center;">Challenge creation</h1>
+
+    <div style="text-align: center;">
+
+        {{ form_start(form) }}
+        <form>
+            <div class="form-group">
+                {{ form_row(form.date) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.time) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.place) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.phase) }}
+            </div>
+        </form>
+
+        {#{{ form_row(form.grey_team_id) }}#}
+        {#{{ form_row(form.blue_team_id) }}#}
+        {#{{ form_row(form.black_team_id) }}#}
+        {#{{ form_row(form.winner_team_id) }}#}
+
+
+        {{ form_end(form) }}
+    </div>
+    <div style="display: flex; flex-direction: column; width: 25%; margin-left: auto; margin-right: auto; margin-top: 10px;">
+        <input class="btn btn-primary" type="submit" value="Create"/>
+        <a style="text-align: center;" {{ path('challenge_index') }}">Back to the list</a>
+
+    </div>
+{% endblock %}

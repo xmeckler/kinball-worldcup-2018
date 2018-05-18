@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 style="text-align: center">Challenge</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ challenge.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if challenge.date %}{{ challenge.date|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <td>{% if challenge.time %}{{ challenge.time|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td>{{ challenge.place }}</td>
+            </tr>
+            <tr>
+                <th>Phase</th>
+                <td>{{ challenge.phase }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<div style="text-align: center;">
+
+    <ul style="list-style-type: none;">
+        <li>
+            <a href="{{ path('challenge_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('challenge_edit', { 'id': challenge.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+
+</div>
+{% endblock %}

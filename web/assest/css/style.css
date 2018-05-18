@@ -1,0 +1,39 @@
+/*footer*/
+.footer {
+    background-color:#343232;
+    height: 60px;
+    margin-top:10px;
+}
+.icons {
+    padding-right: 0;
+    padding-left:  0;
+    text-align: center;
+    padding-top: 12px;
+}
+.list-inline img {
+    width: 32px;
+    height: 32px;
+}
+.list-inline>li>a>i>img:hover {
+    animation: spinAround 2s linear infinite;
+}
+@keyframes spinAround {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@media screen and (max-width: 415px) {
+.list-inline img {
+        width: 26px;
+        height: 26px;
+}
+.listlink a{
+        font-size: 1em;
+    }
+.icons {
+        margin-top: 2.3rem;
+    }
+}

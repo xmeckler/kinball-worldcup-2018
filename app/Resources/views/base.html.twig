@@ -1,13 +1,76 @@
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Kinball{% endblock %}</title>
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('Kinball.jpeg') }}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+            <img alt="Brand" src="{{ asset('Kin-ball_ball.png') }}" style="width: 70px; height: 60px;">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('challenge_index') }}">Matchs</a></li>
+                <li><a href="{{ path('player_index') }}">Joueurs</a></li>
+                <li><a href="{{ path('team_index') }}">Equipe</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<link rel="stylesheet" href="{{ asset('css/tournament/tournament.css') }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Holtwood+One+SC' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script|Herr+Von+Muellerhoff' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Istok+Web|Roboto+Condensed:700' rel='stylesheet' type='text/css'>
+
+    <title>Kinball Tournament</title>
+</head>
+<body>
+<header class="hero">
+    <div class="hero-wrap">
+        <p class="intro" id="intro">Kinball</p>
+        <h1 id="headline">Tournament</h1>
+        <p class="year"><i class="fa fa-star"></i> 2018 <i class="fa fa-star"></i></p>
+        <p>Elle est ou la baballe ?!</p>
+    </div>
+</header>
+{% block body %}{% endblock %}
+<section class="share">
+    <div class="share-wrap">
+        <a class="share-icon" href="https://twitter.com/basement47"><i class="fa fa-twitter"></i></a>
+        <a class="share-icon" href="#"><i class="fa fa-facebook"></i></a>
+        <a class="share-icon" href="#"><i class="fa fa-envelope"></i></a>
+    </div>
+</section>
+{% block javascripts %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+{% endblock %}
+<style>
+    body {  background-image : url("fond-kinball.jpg"); background-size: cover;}
+    header {  background-color : black;}
+    .share {  background-color : black;}
+</style>
+</body>
 </html>

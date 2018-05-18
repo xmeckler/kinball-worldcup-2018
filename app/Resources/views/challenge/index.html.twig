@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 style="text-align: center;">Challenges list</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Grey team</th>
+                <th>Blue team</th>
+                <th>Black team</th>
+                <th>Place</th>
+                <th>Phase</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for challenge in challenges %}
+            <tr>
+                <td>{{ challenge.greyTeam.country }}</td>
+                <td>{{ challenge.blueTeam.country }}</td>
+                <td>{{ challenge.blackTeam.country }}</td>
+                <td>{{ challenge.place }}</td>
+                <td>{{ challenge.phase }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('challenge_show', { 'id': challenge.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('challenge_edit', { 'id': challenge.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div style="text-align: center; padding-bottom: 15px;">
+        <a class="btn btn-primary" href="{{ path('challenge_new') }}">Create a new challenge</a>
+    </div>
+{% endblock %}

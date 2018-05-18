@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 style="text-align: center;">Team creation</h1>
+
+<div style="text-align: center;">
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input class="btn btn-primary" type="submit" value="Create" />
+    {{ form_end(form) }}
+
+
+            <a href="{{ path('team_index') }}">Back to the list</a>
+
+
+</div>
+{% endblock %}

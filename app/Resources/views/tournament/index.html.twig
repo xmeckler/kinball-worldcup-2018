@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('tournament/tournament.css') }}">
+    <div class ="row">
+        <div class="col-md-3">
+            <table>
+            <tbody>
+            {% for challenge in challenges %}
+
+                    <tr class="ligne">
+                        <td class="blue">Blue</td>
+                        <td>{{ challenge.greyTeam.country }}</td>
+                        <td><img src="/uploads/flagImages/{{ challenge.greyTeam.flagImg }}" class="img-responsive flag"></td>
+                        <td>{{ challenge.greyTeam.flagImg }}</td>
+                    </tr>
+
+            {% endfor %}
+            </tbody>
+                </table>
+        </div>
+    </div>
+{% endblock %}
